@@ -19,7 +19,7 @@
 
         </activity>
 
-        <activity android:name=".TestVideoActivity">
+        <activity android:name=".activity.JobEnterpriseInfoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

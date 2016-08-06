@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Loading View -->
+    <ProgressBar
+        android:id="@+id/loadingView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true"/>
+
+    <!-- Content View -->
+    <RelativeLayout
+        android:id="@+id/contentView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f0f0f0">
+
+       <TextView
+           android:text="content"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/act_job_ent_info_name"/>
+    </RelativeLayout>
+
+    <!-- Error view -->
+    <TextView
+        android:id="@+id/errorView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="error"/>
+
+</FrameLayout>
