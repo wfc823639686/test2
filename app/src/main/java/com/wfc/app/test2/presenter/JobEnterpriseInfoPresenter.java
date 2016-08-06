@@ -28,7 +28,7 @@ public class JobEnterpriseInfoPresenter extends MvpBasePresenter<IJobEnterpriseI
             @Override
             public void onError(Call call, Exception e, int id) {
                 if (isViewAttached()) {
-                    getView().showError(new Exception("msg:"+e.getMessage()), pullToRefresh);
+                    getView().showError(e, pullToRefresh);
                 }
             }
 

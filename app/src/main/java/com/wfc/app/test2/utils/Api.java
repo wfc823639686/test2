@@ -23,8 +23,8 @@ public class Api {
     public static void loadEnterpriseInfo(String eid, Callback callback) {
         OkHttpUtils
                 .get()
-                .url("http://apitest.shangshaban.com/api/enterprise/getInfo.htm")
-                .addParams("eid", eid)
+                .url("http://apitest.shangshaban.com/api/enterprise/getInfo1.htm")
+                .addParams("id", eid)
                 .build()
                 .execute(callback);
     }

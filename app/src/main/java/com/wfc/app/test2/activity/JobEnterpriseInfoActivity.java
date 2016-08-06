@@ -30,12 +30,12 @@ public class JobEnterpriseInfoActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_enterprise_info);
         nameTv = (TextView) findViewById(R.id.act_job_ent_info_name);
-        loadData(true);
+        loadData(false);
     }
 
     @Override
     protected String getErrorMessage(Throwable e, boolean pullToRefresh) {
-        return e.getMessage();
+        return "404";
     }
 
     @NonNull
