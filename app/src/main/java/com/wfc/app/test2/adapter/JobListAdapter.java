@@ -24,6 +24,9 @@ import com.wfc.app.test2.widget.GlideCircleTransform;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.BlurTransformation;
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
+
 /**
  * Created by wangfengchen on 16/7/4.
  *
@@ -47,7 +50,9 @@ public class JobListAdapter extends RecyclerView.Adapter implements IListAdapter
         Glide.with(jobViewHolder.coverIv.getContext())
                 .load(job.getEnterprise().getPhoto())
                 .placeholder(R.mipmap.ic_launcher)
-                .transform(new GlideCircleTransform(jobViewHolder.coverIv.getContext()))
+//                .transform(new GlideCircleTransform(jobViewHolder.coverIv.getContext()))
+                .bitmapTransform(new BlurTransformation(jobViewHolder.coverIv.getContext(), 25),
+                        new CropCircleTransformation(jobViewHolder.coverIv.getContext()))
                 .into(jobViewHolder.coverIv);
     }
 

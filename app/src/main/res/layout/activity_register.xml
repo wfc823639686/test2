@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/reg_phone_et"
+        android:inputType="number" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/reg_password_et"
+        android:inputType="textPassword" />
+
+    <Button
+        android:text="@string/reg_zhuce_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reg_submit_btn"
+        android:onClick="onClick"
+        android:clickable="true"
+        android:textColor="#fff"
+        android:background="@drawable/def_submit_btn"/>
+
+</LinearLayout>

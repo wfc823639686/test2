@@ -20,7 +20,9 @@ public class JobEnterpriseInfoPresenter extends MvpBasePresenter<IJobEnterpriseI
     private static final String TAG = "JobEntInfoPresenter";
 
     public void loadEnterpriseInfo(final boolean pullToRefresh) {
-        getView().showLoading(pullToRefresh);
+        if (isViewAttached()) {
+            getView().showLoading(pullToRefresh);
+        }
         Log.d(TAG, "loadEnterpriseInfo");
 
         Api.loadEnterpriseInfo(getView().getEid(), new GsonCallback<EnterpriseResult>(EnterpriseResult.class){

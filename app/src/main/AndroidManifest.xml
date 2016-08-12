@@ -19,7 +19,7 @@
 
         </activity>
 
-        <activity android:name=".activity.JobEnterpriseInfoActivity">
+        <activity android:name=".activity.RegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

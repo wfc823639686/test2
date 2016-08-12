@@ -14,21 +14,27 @@ import okhttp3.Call;
 public class RegisterPresenter extends MvpBasePresenter<IRegisterView> {
 
     public void register() {
-        if (isViewAttached()) {
-            getView().showLoading(true);
+        if(getView().validRegisterParams()) {
+            getView().setRefresh(true);
+            Api.register(getView().getRegisterParams(), new StringCallback() {
+
+                @Override
+                public void onError(Call call, Exception e, int id) {
+                    getView().setError(e.getMessage(), e);
+                }
+
+                @Override
+                public void onResponse(String response, int id) {
+                    getView().setData(response);
+                }
+
+                @Override
+                public void onAfter(int id) {
+                    super.onAfter(id);
+                    getView().setRefresh(false);
+                }
+            });
         }
-        Api.register("1", "1", new StringCallback() {
-
-            @Override
-            public void onError(Call call, Exception e, int id) {
-
-            }
-
-            @Override
-            public void onResponse(String response, int id) {
-
-            }
-        });
     }
 
 }
