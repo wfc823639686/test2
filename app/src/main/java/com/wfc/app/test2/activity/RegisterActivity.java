@@ -3,6 +3,7 @@ package com.wfc.app.test2.activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.hannesdorfmann.mosby.mvp.MvpActivity;
+import com.wfc.app.test2.BuildConfig;
 import com.wfc.app.test2.R;
 import com.wfc.app.test2.presenter.RegisterPresenter;
 import com.wfc.app.test2.utils.MapUtils;
@@ -35,6 +37,7 @@ import okio.BufferedSink;
 public class RegisterActivity
         extends MvpActivity<IRegisterView, RegisterPresenter>
         implements IRegisterView {
+    private final static String TAG = "RegisterActivity";
 
     EditText phoneEt;
     EditText passwordEt;
@@ -50,6 +53,8 @@ public class RegisterActivity
         phoneEt = (EditText) findViewById(R.id.reg_phone_et);
         passwordEt = (EditText) findViewById(R.id.reg_password_et);
         registerBtn = (Button) findViewById(R.id.reg_submit_btn);
+        Log.d(TAG, BuildConfig.API_SERVICE);
+        phoneEt.setText(BuildConfig.API_SERVICE);
     }
 
     @NonNull
@@ -95,11 +100,7 @@ public class RegisterActivity
 
     @Override
     public void setRefresh(boolean b) {
-        if(b) {
-            registerBtn.setEnabled(false);
-        } else {
-            registerBtn.setEnabled(true);
-        }
+        registerBtn.setEnabled(!b);
     }
 
     public void onClick(View view) {

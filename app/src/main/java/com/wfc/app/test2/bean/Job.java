@@ -165,4 +165,26 @@ public class Job {
     public int getReported() {
         return this.reported;
     }
+
+    @Override
+    public String toString() {
+        return "Job{" +
+                "enterpriseId=" + enterpriseId +
+                ", enterprise=" + enterprise +
+                ", id=" + id +
+                ", position='" + position + '\'' +
+                ", position1='" + position1 + '\'' +
+                ", jobName='" + jobName + '\'' +
+                ", temptation='" + temptation + '\'' +
+                ", salaryMinimum=" + salaryMinimum +
+                ", salaryHighest=" + salaryHighest +
+                ", baseSalary=" + baseSalary +
+                ", status=" + status +
+                ", updateTime='" + updateTime + '\'' +
+                ", createTime='" + createTime + '\'' +
+                ", distance=" + distance +
+                ", jobCommoditiesStr='" + jobCommoditiesStr + '\'' +
+                ", reported=" + reported +
+                '}';
+    }
 }

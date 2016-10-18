@@ -24,4 +24,12 @@ public class JobResult {
     public int getStatus() {
         return this.status;
     }
+
+    @Override
+    public String toString() {
+        return "JobResult{" +
+                "detail=" + detail +
+                ", status=" + status +
+                '}';
+    }
 }

@@ -18,6 +18,11 @@
         <!--fresco:placeholderImage="@mipmap/ic_launcher"-->
         <!--/>-->
 
+    <com.wfc.app.test2.widget.MagicCircle
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        />
 
 
 

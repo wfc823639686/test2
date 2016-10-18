@@ -47,7 +47,7 @@ public class VideoPlayer extends SurfaceView implements View.OnClickListener,
 
     @Override
     public void onClick(View view) {
-        Log.d(TAG, "onClick");
+        Log.d(TAG, "onSelect");
         if (view == this) {
             if (mediaPlayer.isPlaying()) {
                 Log.d(TAG, "click pause");

@@ -1,6 +1,8 @@
 package com.wfc.app.test2.presenter;
 
 import com.google.gson.Gson;
+import com.hannesdorfmann.mosby.mvp.MvpBasePresenter;
+import com.wfc.app.test2.api.UserApi;
 import com.wfc.app.test2.bean.CommentListResult;
 import com.wfc.app.test2.bean.JobResult;
 import com.wfc.app.test2.model.JobInfoModel;
@@ -11,59 +13,36 @@ import java.io.IOException;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
+import rx.Subscriber;
 
 /**
  * Created by wangfengchen on 16/7/5.
  *
  */
-public class JobInfoPresenter {
+public class JobInfoPresenter extends MvpBasePresenter<IJobInfoView> {
 
     private static final String TAG = "JobInfoPresenter";
 
-    private JobInfoModel jobInfoModel;
-    private IJobInfoView jobInfoView;
+    public JobInfoPresenter() {
 
-    public JobInfoPresenter(IJobInfoView jobInfoView) {
-        this.jobInfoView = jobInfoView;
-        jobInfoModel = new JobInfoModel();
     }
 
     public void getJobInfo() {
-        jobInfoView.onJobInfoLoadStart();
-        jobInfoModel.getJobInfo(jobInfoView.getId(), new Callback() {
+        getView().showLoading(true);
+        UserApi.getJobInfo(1).subscribe(new Subscriber<JobResult>() {
             @Override
-            public void onFailure(Call call, IOException e) {
-                jobInfoView.onJobInfoFailure(e);
-                jobInfoView.onJobInfoLoadEnd();
+            public void onCompleted() {
+                getView().showLoading(false);
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
-//                Log.d(TAG, response.body().string());
-
-                Gson gson = new Gson();
-                JobResult result = gson.fromJson(response.body().charStream(), JobResult.class);
-                jobInfoView.onJobInfoLoadResult(result);
-                jobInfoView.onJobInfoLoadEnd();
-            }
-        });
-    }
-
-    public void getEnterpriseComments() {
-        jobInfoModel.getEnterpriseComments(jobInfoView.getEid(), new Callback() {
-
-            @Override
-            public void onFailure(Call call, IOException e) {
-                jobInfoView.onEnterpriseCommentsFailure(e);
-                jobInfoView.onEnterpriseCommentsLoadEnd();
+            public void onError(Throwable e) {
+                getView().showError(e, false);
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                Gson gson = new Gson();
-                CommentListResult result = gson.fromJson(response.body().charStream(), CommentListResult.class);
-                jobInfoView.onEnterpriseCommentsLoadResult(result);
-                jobInfoView.onEnterpriseCommentsLoadEnd();
+            public void onNext(JobResult jobResult) {
+                getView().showContent();
             }
         });
     }
