@@ -1,24 +1,30 @@
 package com.wfc.app.test2.api;
 
-import android.app.Application;
-import android.content.Context;
+import android.util.Log;
 
-import com.facebook.stetho.okhttp3.StethoInterceptor;
-
-import java.io.File;
-import java.util.concurrent.TimeUnit;
-
-import okhttp3.Cache;
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public abstract class BaseApi {
-    public static final String API_SERVER = "http://apitest.shangshaban.com";
+abstract class BaseApi {
+    private static final String API_SERVER = "http://apitest.shangshaban.com";
     private static Retrofit mRetrofit;
+    private static HttpLoggingInterceptor httpLoggingInterceptor;
+    static {
+        httpLoggingInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
+            @Override
+            public void log(String message) {
+                Log.i("OK_HTTP", message);
+            }
+        });
+        //包含header、body数据
+        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
-    protected static Retrofit getRetrofit() {
+    }
+
+    static Retrofit getRetrofit() {
             if (mRetrofit == null) {
                 //设定30秒超时
                 //构建Retrofit
@@ -34,7 +40,9 @@ public abstract class BaseApi {
                         //设置OKHttpClient为网络客户端
                         .client(new OkHttpClient
                                 .Builder()
-                                .addInterceptor(new StethoInterceptor())
+                                //FaceBook 网络调试器，可在Chrome调试网络请求，查看SharePreferences,数据库等
+//                                .addNetworkInterceptor(new StethoInterceptor())
+                                .addInterceptor(httpLoggingInterceptor)
                                 .build())
                         .build();
             }

@@ -12,8 +12,8 @@ import com.wfc.app.test2.bean.JobResult;
  */
 public interface IJobInfoView extends MvpLceView<JobResult> {
 
-    String getId();
+    int getId();
 
-    void onJobInfoLoadResult(JobResult result);
+    void setCommentsData(CommentListResult r);
 
 }
