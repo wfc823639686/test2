@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <com.wfc.app.test2.view.SlidingSelectView
+        android:background="#eee"
+        android:layout_centerInParent="true"
+        android:layout_width="320dp"
+        android:layout_height="480dp">
+
+    </com.wfc.app.test2.view.SlidingSelectView>
+
+</RelativeLayout>

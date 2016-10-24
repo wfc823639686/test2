@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="navi-0.2.2">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.trello/navi/0.2.2/res" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.trello/navi/0.2.2/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.trello/navi/0.2.2/eca8b68c4f4afd2ee849c57e10d53b8c56e8a76e/navi-0.2.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

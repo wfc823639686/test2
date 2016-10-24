@@ -14,6 +14,8 @@ public interface IJobInfoView extends MvpLceView<JobResult> {
 
     int getId();
 
+    int getEnterpriseId();
+
     void setCommentsData(CommentListResult r);
 
 }

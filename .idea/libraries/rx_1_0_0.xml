@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="rx-1.0.0">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.hannesdorfmann.mosby/rx/1.0.0/res" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.hannesdorfmann.mosby/rx/1.0.0/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.hannesdorfmann.mosby/rx/1.0.0/deb201c49886d279a8d35b68eb716a5c16445de9/rx-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
